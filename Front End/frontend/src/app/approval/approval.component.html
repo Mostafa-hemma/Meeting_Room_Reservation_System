@@ -1,0 +1,64 @@
+<toolbar-template-demo></toolbar-template-demo>
+<app-sidebar ></app-sidebar>
+<p-toast />
+<p-confirmPopup />
+<p-table
+        [value]="pendingEvents"
+        [tableStyle]="{ 'border-radius': '3rem','background-image': 'linear-gradient(to right, #003973, #e5e5be)',
+                            'width':'100%',
+                            'height':'100%',
+                           
+                            'font-size': 'small' }"
+    >
+        <ng-template pTemplate="header" >
+            <tr style="font-size: large;">
+                <th style="width:11%">Event Name</th>
+                <th style="width:11%">Meeting Room Name</th>
+                <th style="width:11%">Meeting Room Status</th>
+                <th style="width:11%">Meeting Room Reserver</th>
+
+                <th style="width:11%">Start Time</th>
+                <th style="width:11%">End Time</th>
+                <th style="width:11%">date</th>
+                <th style="width:11%">Event Status</th>
+                <th style="width:11%">Approve</th>
+                <th style="width:11%">Decline</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-event>
+            <tr >
+     
+                <td>{{ event.name }}</td>
+                <td>{{ event.roomDto.floor}}</td>
+                <td>{{ event.roomDto.status }}</td>
+                <td>{{ event.employeeDto.firstName+" " + event.employeeDto.lastName }}</td>
+
+                <td>{{ event.startTime }}</td>
+                <td>{{ event.endTime }}</td>
+
+                <td>{{ event.date}}</td>
+
+                <td >{{ event.status}}</td>
+                <td>
+                    <p-button
+                    label="Approve"
+                    icon="pi pi-check"
+                    severity="danger" 
+
+                    (onClick)="onApprove(event,$event)" />
+                </td>
+                <td>
+                    <p-button label="Decline"
+                    icon="pi pi-times"  
+                    severity="danger" 
+
+                    [style]="{'background-color': 'red'}"
+                    (onClick)="onDecline(event,$event)"/>
+                </td>
+               
+               
+ 
+ 
+            </tr>
+        </ng-template>
+    </p-table>

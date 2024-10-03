@@ -1,0 +1,78 @@
+<div class="card flex justify-content-center">
+    <p-sidebar #sidebarRef
+    [(visible)]="data"
+    [style]="{ 'border-radius': '1rem', 'background-image': 'linear-gradient(to right, #003973, #e5e5be)','width':'20%','height':'100%' }">
+       
+       
+            <div class="flex align-items-center gap-2">
+           
+                    <p-avatar
+                    image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+                    shape="circle"
+                    size="xlarge"
+                    [ngStyle]="{ 'width': '150px', 'height': '150px' }"/>
+                    <h2 style="width: 100%; display: flex; justify-content: center; align-items: center; color: #ffffff;">{{empName}}</h2>
+            
+            </div>
+ 
+         
+        <button
+                type="button"
+                (click)="goToEvents()"  
+                label="My Events"
+                class="p-button-text"
+                pButton
+                [style]="{'width': '100%',
+                    'margin': '10px 0',
+                    'box-sizing': 'border-box',
+                    'text-align': 'center',
+                    'display': 'flex',    
+                    'align-items': 'center',
+                    'justify-content': 'center',
+                    'background-color': 'transparent',
+                    'font-size':'18px',
+                    'font-weight': 'bold',
+                    }"
+                rounded="true"></button>
+                <button
+                type="button"
+                (click)="toApprove()"  
+                label="Approve Requests"
+                *ngIf="seen"
+                class="p-button-text"
+                pButton
+                [style]="{'width': '100%',
+                    'margin': '10px 0',
+                    'box-sizing': 'border-box',
+                    'text-align': 'center',
+                    'display': 'flex',    
+                    'align-items': 'center',
+                    'justify-content': 'center',
+                    'background-color': 'transparent',
+                    'font-size':'18px',
+                    'font-weight': 'bold',
+                    }"
+                rounded="true"></button>
+
+                <button
+                type="button"
+                (click)="MeetingRooms()"  
+                label="Meeting Rooms"
+                *ngIf="toggleMeeting"
+                class="p-button-text"
+                pButton
+                [style]="{'width': '100%',
+                    'margin': '10px 0',
+                    'box-sizing': 'border-box',
+                    'text-align': 'center',
+                    'display': 'flex',    
+                    'align-items': 'center',
+                    'justify-content': 'center',
+                    'background-color': 'transparent',
+                    'font-size':'18px',
+                    'font-weight': 'bold',
+                    }"
+                rounded="true"></button>
+           
+    </p-sidebar>
+    </div>

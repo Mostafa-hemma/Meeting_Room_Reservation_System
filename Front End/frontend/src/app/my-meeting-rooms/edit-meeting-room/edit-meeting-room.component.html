@@ -1,0 +1,56 @@
+<p-dialog header="Edit Meeting" [modal]="true" [(visible)]="visible"  [draggable]="false" >
+
+    <form #form="ngForm" (ngSubmit)="onSaveEdit(form)" style="width: 500px;" >
+        
+      <div class="card">
+        <p-messages [(value)]="messages" [enableService]="false" />
+    </div>
+   
+        <div data-mdb-input-init class="form-outline mb-4">
+            <label class="form-label" for="MeetingRoomFloor">Meeting Room Floor</label>
+            <input type="text" id="MeetingRoomFloor" class="form-control form-control-lg" readonly
+              name="MeetingRoomFloor" ngModel required  />
+              <div *ngIf="form.submitted && form.controls['meetingName']?.invalid" style="color: red; font-size: 1.1em;">
+                Meeting Name is required.
+              </div>
+        </div>
+        
+      
+        <div data-mdb-input-init class="form-outline mb-4">
+            <label class="form-label" for="meetingRoomOffice">Meeting Room Office</label>
+            <input type="text" id="meetingRoomOffice" class="form-control form-control-lg" readonly
+              name="meetingRoomOffice" ngModel required />
+              <div *ngIf="form.submitted && form.controls['meetingStartDate']?.invalid" style="color: red; font-size: 1.1em;">
+                Meeting Start Time is required.
+              </div>
+        </div>
+
+
+        
+        <div  data-mdb-input-init class="form-outline mb-4">
+            <label class="form-label" for="meetingRoomStatus">Meeting Room Status</label>
+            <div class="card flex justify-content-center">
+              <p-dropdown 
+              [options]="meetingRoomStatuses" 
+              name="meetingRoomStatus" 
+              [(ngModel)]="selectedStatus"  
+              optionLabel="status" 
+              [showClear]="true"
+             placeholder="select a room"
+              />
+          </div>
+        </div>
+  
+
+      
+     
+        <br>
+        <div class="button-container">
+            <button pButton type="button" (click)="visible=false" label="Cancel" class="button-space" ></button>
+            <button pButton type="submit"   label="Save" ></button>
+          </div>
+
+    </form>
+
+
+</p-dialog> 

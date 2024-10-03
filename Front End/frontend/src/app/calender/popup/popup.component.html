@@ -1,0 +1,13 @@
+<div class="card flex justify-content-center">
+    <ng-container *ngIf="event">
+        <!-- Display event details -->
+        <p>{{ event.title }}</p>
+        <p>{{ event.extendedProps.describtion }}</p>
+
+        <!-- Add other event details as needed -->
+    </ng-container>
+    <ng-container *ngIf="!event">
+        <!-- Handle the case where event is undefined -->
+        <p>No event selected</p>
+    </ng-container>
+</div>

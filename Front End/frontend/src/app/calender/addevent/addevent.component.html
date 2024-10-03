@@ -1,0 +1,96 @@
+<p-dialog header="Add Meeting" [modal]="true" [(visible)]="visible"  [draggable]="false" >
+
+  <form #form="ngForm" (ngSubmit)="onSaveEvent(form)" style="width: 500px;" >
+    <div >
+      <p-messages [(value)]="messages" [enableService]="false" />
+  </div>
+
+      <div data-mdb-input-init class="form-outline mb-4">
+          <label class="form-label" for="meetingName">Meeting Name</label>
+          <input type="text"
+           id="meetingName" 
+           class="form-control form-control-lg"
+            name="meetingName" 
+            ngModel 
+            required 
+            placeholder="Enter a valid Meeting Name" />
+            <div *ngIf="form.submitted && form.controls['meetingName']?.invalid" style="color: red; font-size: 1.1em;">
+              Meeting Name is required.
+            </div>
+      </div>
+    
+      <div data-mdb-input-init class="form-outline mb-4">
+          <label class="form-label" for="meetingStartTime">Meeting Start Time</label>
+          <input type="datetime-local" id="meetingStartTime" class="form-control form-control-lg"
+            name="meetingStartDate" ngModel required />
+            <div *ngIf="form.submitted && form.controls['meetingStartDate']?.invalid" style="color: red; font-size: 1.1em;">
+              Meeting Start Time is required.
+            </div>
+      </div>
+      <div data-mdb-input-init class="form-outline mb-4">
+          <label class="form-label" for="meetingEndTime">Meeting End Time</label>
+          <input type="time" id="meetingEndTime" class="form-control form-control-lg"
+            name="meetingEndTime"  ngModel required />
+            <div *ngIf="form.submitted && form.controls['meetingEndTime']?.invalid" style="color: red; font-size: 1.1em;">
+              Meeting End Time is required.
+            </div>
+           
+      </div>
+ 
+    <!---->
+    <div data-mdb-input-init class="form-outline mb-4">
+      <label class="form-label" for="meetingReserver">Meeting Reserver</label>
+      <input type="text" id="meetingReserver" class="form-control form-control-lg"  readonly
+        name="meetingReserver" ngModel  />
+        
+  </div>
+  <div data-mdb-input-init class="form-outline mb-4">
+    <label class="form-label" for="reserverCountry">Reserver's Country</label>
+    <input type="text" id="reserverCountry" class="form-control form-control-lg"  readonly
+      name="reserverCountry" ngModel  />
+      
+</div>
+<div data-mdb-input-init class="form-outline mb-4">
+  <label class="form-label" for="reserverGov">Reserver Government</label>
+  <input type="text" id="reserverGov" class="form-control form-control-lg"  readonly
+    name="reserverGov" ngModel  />
+    
+</div>
+<div data-mdb-input-init class="form-outline mb-4">
+  <label class="form-label" for="reserverOffice">Reserver's Office</label>
+  <input type="text" id="reserverOffice" class="form-control form-control-lg"  readonly
+    name="reserverOffice" ngModel  />
+    
+</div>
+  <div data-mdb-input-init class="form-outline mb-4">
+    <label class="form-label" for="meetingRoom">Meeting Room</label>
+    <div class="card flex justify-content-center">
+      <p-dropdown 
+          [options]="meetingRooms" 
+          name="meetingRoom" ngModel
+          optionLabel="floor" 
+          [showClear]="true"
+          placeholder="Select a Meeting Room" />
+  </div>
+
+    
+</div>
+    <!---->
+      <div data-mdb-input-init class="form-outline mb-4">
+          <label class="form-label" for="meetingDescription">Meeting Description</label>
+          <textarea rows="6" type="text" id="meetingDescription" class="form-control form-control-lg"
+            name="meetingDescription" ngModel required></textarea>
+            <div *ngIf="form.submitted && form.controls['meetingDescription']?.invalid" style="color: red; font-size: 1.1em;">
+              Meeting Description is required.
+            </div>
+      </div>
+      <br>
+      <div class="button-container">
+        <button pButton type="button" label="Cancel" class="button-space" (click)="visible=false"></button>
+        <button pButton type="submit" label="Save" ></button>
+      </div>
+
+  </form>
+
+
+</p-dialog> 

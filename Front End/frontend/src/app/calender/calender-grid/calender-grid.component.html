@@ -1,0 +1,19 @@
+<div [style]="{ 'border-radius': '3rem', 'background-image': 'linear-gradient(to right, #003973, #e5e5be)' }" >
+  <toolbar-template-demo></toolbar-template-demo>
+  <app-sidebar></app-sidebar>
+<br>
+<p-toast />
+<p-confirmPopup />
+<br>
+  <div class="filter-container">
+    <app-filter></app-filter>
+  </div>
+
+  <full-calendar *ngIf="eventsFetched" [options]="calendarOptions"></full-calendar>
+
+  <p-overlayPanel #op [style]="{ 'left.px': mousePosition.x, 'top.px': mousePosition.y }">
+    <overlay-panel-basic-demo [event]="selectedEvent"></overlay-panel-basic-demo>
+  </p-overlayPanel>
+  
+  <dialog-basic-demo #eventDialog></dialog-basic-demo>
+</div>

@@ -1,0 +1,9 @@
+.button-container {
+    display: flex;
+    gap: 10px; /* Adds space between buttons */
+  }
+  
+  .button-space {
+    margin-right: 10px; /* Adds space to the right of the button */
+  }
+  

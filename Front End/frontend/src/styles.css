@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import '@angular/cdk/overlay-prebuilt.css';
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:root {
+    --fc-theme-standard-border-color: #dee2e6;
+    --fc-theme-standard-bg-color: #f8f9fa;
+    --fc-event-bg-color: #17a2b8;
+    --fc-event-border-color: #138496;
+    --fc-event-text-color: white;
+  }

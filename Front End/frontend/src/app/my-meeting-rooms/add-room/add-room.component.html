@@ -1,0 +1,84 @@
+<p-dialog header="Add Meeting Room" [modal]="true" [(visible)]="visible"  [draggable]="false" >
+
+    <form #form="ngForm" (ngSubmit)="onSaveRoom(form)" style="width: 500px;" >
+   
+        <div data-mdb-input-init class="form-outline mb-4">
+            <label class="form-label" for="meetingFloor">Meeting Floor</label>
+            <input type="text" id="meetingFloor" class="form-control form-control-lg"
+              name="meetingFloor" ngModel required placeholder="Enter a valid Meeting Floor" />
+              <div *ngIf="form.submitted && form.controls['meetingFloor']?.invalid" style="color: red; font-size: 1.1em;">
+                Meeting Floor is required.
+              </div>
+        </div>
+      <br>
+        <div  data-mdb-input-init class="form-outline mb-4">
+            <label class="form-label" for="meetingRoomStatus">Meeting Room Status</label>
+            <div class="card flex justify-content-center">
+              <p-dropdown 
+              [options]="meetingRoomStatuses" 
+              name="meetingRoomStatus" 
+              [(ngModel)]="selectedStatus"  
+              optionLabel="status" 
+              [showClear]="true"
+             placeholder="select a room"
+              />
+          </div>
+        </div>
+        <br>
+        <label class="form-label" >Meeting Room Location</label>
+        <br>
+        <p-dropdown 
+      [options]="countries" 
+      [(ngModel)]="selectedCountry" 
+      optionLabel="name" 
+      name="selectedCountry"
+      placeholder="Select a Country" 
+      class="dropdown" 
+      (onChange)="onCountryChange($event)"/>
+
+    <p-dropdown 
+      [options]="governments" 
+      [(ngModel)]="selectedGovernment" 
+      optionLabel="name" 
+      name="selectedGovernment"
+      *ngIf="showGovernmentDropdown"
+      placeholder="Select a Government" 
+      class="dropdown" 
+      (onChange)="onGovChange($event)"/>
+
+    <p-dropdown 
+      [options]="offices" 
+      [(ngModel)]="selectedOffice" 
+      optionLabel="name" 
+      name="selectedOffice"
+      *ngIf="showOfficeDropdown"
+      placeholder="Select an Office" 
+      class="dropdown" 
+     />
+     <br>
+     <br>
+
+     <label class="form-label" >Meeting Room Responsible</label>
+     <br>     
+     <p-multiSelect  
+      [options]="employees" 
+      [(ngModel)]="selectedEmployees" 
+      optionLabel="email" 
+      name="selectedEmployees"
+      display="chip" 
+      placeholder="Select an Responsible Employee" 
+      class="dropdown" 
+     />
+        
+        <br>
+        <br>
+        <div class="button-container">
+          <button pButton type="button" label="Cancel" class="button-space" (click)="visible=false"></button>
+          <button pButton type="submit" label="Save" ></button>
+        </div>
+  
+    </form>
+  
+  
+  </p-dialog> 
+  
